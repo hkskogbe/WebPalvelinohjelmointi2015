@@ -1,0 +1,196 @@
+hese@GreenGreens:~/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer$ rails c
+Loading development environment (Rails 4.2.0)
+irb(main):001:0> Brewery.new name:"BrewDog", year:2007
+=> #<Brewery id: nil, name: "BrewDog", year: 2007, created_at: nil, updated_at: nil>
+irb(main):002:0> b = _
+=> #<Brewery id: nil, name: "BrewDog", year: 2007, created_at: nil, updated_at: nil>
+irb(main):003:0> b
+=> #<Brewery id: nil, name: "BrewDog", year: 2007, created_at: nil, updated_at: nil>
+irb(main):004:0> 
+irb(main):004:0> b.save
+   (0.1ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "BrewDog"], ["year", 2007], ["created_at", "2015-01-25 15:20:33.349364"], ["updated_at", "2015-01-25 15:20:33.349364"]]
+   (88.3ms)  commit transaction
+=> true
+irb(main):005:0> b.new Beer name:"Punk", style:"IPA"
+NoMethodError: undefined method `Beer' for main:Object
+	from (irb):5
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/console.rb:110:in `start'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/console.rb:9:in `start'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `block in require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/bin/rails:8:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `block in load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/commands/rails.rb:6:in `call'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/command_wrapper.rb:38:in `call'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:183:in `block in serve'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:156:in `fork'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:156:in `serve'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:131:in `block in run'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:125:in `loop'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:125:in `run'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application/boot.rb:18:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from -e:1:in `<main>'irb(main):006:0> 
+irb(main):006:0> b
+=> #<Brewery id: 5, name: "BrewDog", year: 2007, created_at: "2015-01-25 15:20:33", updated_at: "2015-01-25 15:20:33">
+irb(main):007:0> b.beers
+  Beer Load (0.1ms)  SELECT "beers".* FROM "beers" WHERE "beers"."brewery_id" = ?  [["brewery_id", 5]]
+=> #<ActiveRecord::Associations::CollectionProxy []>
+irb(main):008:0> b.beers.create name:"Punk", style:"IPA"
+   (0.1ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Punk"], ["style", "IPA"], ["brewery_id", 5], ["created_at", "2015-01-25 15:22:31.024424"], ["updated_at", "2015-01-25 15:22:31.024424"]]
+   (137.6ms)  commit transaction
+=> #<Beer id: 13, name: "Punk", style: "IPA", brewery_id: 5, created_at: "2015-01-25 15:22:31", updated_at: "2015-01-25 15:22:31">
+irb(main):009:0> b.beers.create name:"Nanny State", style:"lowalcohol"
+   (0.1ms)  begin transaction
+  SQL (0.1ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nanny State"], ["style", "lowalcohol"], ["brewery_id", 5], ["created_at", "2015-01-25 15:22:51.175944"], ["updated_at", "2015-01-25 15:22:51.175944"]]
+   (98.5ms)  commit transaction
+=> #<Beer id: 14, name: "Nanny State", style: "lowalcohol", brewery_id: 5, created_at: "2015-01-25 15:22:51", updated_at: "2015-01-25 15:22:51">
+irb(main):010:0> b.beers
+=> #<ActiveRecord::Associations::CollectionProxy [#<Beer id: 13, name: "Punk", style: "IPA", brewery_id: 5, created_at: "2015-01-25 15:22:31", updated_at: "2015-01-25 15:22:31">, #<Beer id: 14, name: "Nanny State", style: "lowalcohol", brewery_id: 5, created_at: "2015-01-25 15:22:51", updated_at: "2015-01-25 15:22:51">]>
+irb(main):011:0> b.beers.first
+=> #<Beer id: 13, name: "Punk", style: "IPA", brewery_id: 5, created_at: "2015-01-25 15:22:31", updated_at: "2015-01-25 15:22:31">
+irb(main):012:0> a = _
+=> #<Beer id: 13, name: "Punk", style: "IPA", brewery_id: 5, created_at: "2015-01-25 15:22:31", updated_at: "2015-01-25 15:22:31">
+irb(main):013:0> a.ratings
+  Rating Load (0.1ms)  SELECT "ratings".* FROM "ratings" WHERE "ratings"."beer_id" = ?  [["beer_id", 13]]
+=> #<ActiveRecord::Associations::CollectionProxy []>
+irb(main):014:0> a.ratings.create integer:5
+   (0.1ms)  begin transaction
+   (0.0ms)  rollback transaction
+ActiveRecord::UnknownAttributeError: unknown attribute 'integer' for Rating.
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/attribute_assignment.rb:59:in `rescue in _assign_attribute'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/attribute_assignment.rb:54:in `_assign_attribute'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/attribute_assignment.rb:41:in `block in assign_attributes'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/attribute_assignment.rb:35:in `each'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/attribute_assignment.rb:35:in `assign_attributes'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/core.rb:557:in `init_attributes'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/core.rb:280:in `initialize'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/inheritance.rb:61:in `new'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/inheritance.rb:61:in `new'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/reflection.rb:131:in `build_association'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/associations/association.rb:247:in `build_record'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/associations/collection_association.rb:489:in `block in _create_record'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/associations/collection_association.rb:173:in `block in transaction'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `block in transaction'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/transaction.rb:188:in `within_new_transaction'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.0/lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+... 8 levels...
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/console.rb:9:in `start'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `block in require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/bin/rails:8:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `block in load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from -e:1:in `<main>'irb(main):015:0> 
+irb(main):015:0> a
+=> #<Beer id: 13, name: "Punk", style: "IPA", brewery_id: 5, created_at: "2015-01-25 15:22:31", updated_at: "2015-01-25 15:22:31">
+irb(main):016:0> new Rating integer:5, beer_id:a.beer_id
+NoMethodError: undefined method `beer_id' for #<Beer:0x007fe86b9a2418>
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activemodel-4.2.0/lib/active_model/attribute_methods.rb:433:in `method_missing'
+	from (irb):16
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/console.rb:110:in `start'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/console.rb:9:in `start'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `block in require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/bin/rails:8:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `block in load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/commands/rails.rb:6:in `call'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/command_wrapper.rb:38:in `call'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:183:in `block in serve'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:156:in `fork'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:156:in `serve'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:131:in `block in run'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:125:in `loop'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:125:in `run'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application/boot.rb:18:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from -e:1:in `<main>'irb(main):017:0> new Rating integer:5, beer_id:a.id
+NoMethodError: undefined method `Rating' for main:Object
+	from (irb):17
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/console.rb:110:in `start'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/console.rb:9:in `start'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:68:in `console'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/commands.rb:17:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `block in require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:274:in `require'
+	from /home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/bin/rails:8:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `block in load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:240:in `load_dependency'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.0/lib/active_support/dependencies.rb:268:in `load'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/commands/rails.rb:6:in `call'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/command_wrapper.rb:38:in `call'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:183:in `block in serve'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:156:in `fork'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:156:in `serve'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:131:in `block in run'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:125:in `loop'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application.rb:125:in `run'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/spring-1.2.0/lib/spring/application/boot.rb:18:in `<top (required)>'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/hese/.rbenv/versions/2.2.0/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from -e:1:in `<main>'irb(main):018:0> 
+irb(main):018:0> a
+=> #<Beer id: 13, name: "Punk", style: "IPA", brewery_id: 5, created_at: "2015-01-25 15:22:31", updated_at: "2015-01-25 15:22:31">
+irb(main):019:0> a.ratings.create score:5
+   (0.1ms)  begin transaction
+  SQL (0.2ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 5], ["beer_id", 13], ["created_at", "2015-01-25 15:25:48.248107"], ["updated_at", "2015-01-25 15:25:48.248107"]]
+   (114.6ms)  commit transaction
+=> #<Rating id: 4, score: 5, beer_id: 13, created_at: "2015-01-25 15:25:48", updated_at: "2015-01-25 15:25:48">
+irb(main):020:0> a.ratings.create score:4
+   (0.1ms)  begin transaction
+  SQL (0.1ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 4], ["beer_id", 13], ["created_at", "2015-01-25 15:25:50.822306"], ["updated_at", "2015-01-25 15:25:50.822306"]]
+   (99.5ms)  commit transaction
+=> #<Rating id: 5, score: 4, beer_id: 13, created_at: "2015-01-25 15:25:50", updated_at: "2015-01-25 15:25:50">
+irb(main):021:0> b
+=> #<Brewery id: 5, name: "BrewDog", year: 2007, created_at: "2015-01-25 15:20:33", updated_at: "2015-01-25 15:20:33">
+irb(main):022:0> b.beers.second
+=> #<Beer id: 14, name: "Nanny State", style: "lowalcohol", brewery_id: 5, created_at: "2015-01-25 15:22:51", updated_at: "2015-01-25 15:22:51">
+irb(main):023:0> a = _
+=> #<Beer id: 14, name: "Nanny State", style: "lowalcohol", brewery_id: 5, created_at: "2015-01-25 15:22:51", updated_at: "2015-01-25 15:22:51">
+irb(main):024:0> a
+=> #<Beer id: 14, name: "Nanny State", style: "lowalcohol", brewery_id: 5, created_at: "2015-01-25 15:22:51", updated_at: "2015-01-25 15:22:51">
+irb(main):025:0> a.ratings.create score:40
+   (0.1ms)  begin transaction
+  SQL (0.1ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 40], ["beer_id", 14], ["created_at", "2015-01-25 15:26:14.584221"], ["updated_at", "2015-01-25 15:26:14.584221"]]
+   (108.7ms)  commit transaction
+=> #<Rating id: 6, score: 40, beer_id: 14, created_at: "2015-01-25 15:26:14", updated_at: "2015-01-25 15:26:14">
+irb(main):026:0> a.ratings.create score:42
+   (0.1ms)  begin transaction
+  SQL (0.1ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 42], ["beer_id", 14], ["created_at", "2015-01-25 15:26:17.869133"], ["updated_at", "2015-01-25 15:26:17.869133"]]
+   (94.6ms)  commit transaction
+=> #<Rating id: 7, score: 42, beer_id: 14, created_at: "2015-01-25 15:26:17", updated_at: "2015-01-25 15:26:17">
+irb(main):027:0> 
+
