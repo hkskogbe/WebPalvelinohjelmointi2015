@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= @user.username %></strong>
+  has made <%= @user.ratings.count %> ratings, average <%= @user.average_rating %>
+</p>
+
+<p>
+Member of
+  <% @user.memberships.each do |membership| %>
+	<li>
+      <td><%= link_to membership.beer_club.name, beer_club_path %></td>
+    </li>
+  <% end %>
+</p>
+
+<p>Ratings</p>
+
+  
+  <ul>
+    <% @user.ratings.each do |rating| %>
+      <li>
+        <%= rating %>
+        <% if @user == current_user %>
+            <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+<% if current_user = @user %>
+  <%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
+<%= link_to 'Back', users_path %>

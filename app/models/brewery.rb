@@ -4,6 +4,16 @@ class Brewery < ActiveRecord::Base
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
 
+  validates :name, length: { minimum: 1 }, allow_nil: false
+  validates :year, numericality: { greater_than_or_equal_to: 1042,
+                                    only_integer: true }
+  validate :vuosi_ei_tulevaisuudessa
+
+  def vuosi_ei_tulevaisuudessa
+	if Date.current.year < year
+	  errors.add(:year, "Time travel not allowed, year cannot be in future")
+	end
+  end
 
   def print_report
     puts name
