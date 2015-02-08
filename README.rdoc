@@ -1,4 +1,0 @@
-== README
-
-Sovelluksen Heroku-instanssi:
-https://mighty-badlands-1432.herokuapp.com/breweries

@@ -17,6 +17,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new
 	@beer_clubs = BeerClub.all
 	@users = User.all
+	@user = User.find_by username: params[:username]
   end
 
   # GET /memberships/1/edit

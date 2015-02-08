@@ -43,9 +43,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if user_params[:username].nil? and @user == current_user and @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render action: 'edit' }
+        format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -54,10 +54,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    if current_user == @user
+      @user.destroy
+      session[:user_id] = nil
+    end
     respond_to do |format|
-	  session[:user_id] = nil
-      format.html { redirect_to action: "index", notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +72,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-     params.require(:user).permit(:username, :password, :password_confirmation)
-  end
+      params.require(:user).permit(:username, :password, :password_confirmation)
+    end
+
+
 end

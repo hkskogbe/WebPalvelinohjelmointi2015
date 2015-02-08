@@ -1,6 +1,5 @@
 class BeerClub < ActiveRecord::Base
   has_many :memberships
-  has_many :users, through: :membership
+  has_many :members, through: :memberships, source: user
 
-  validates :user, uniqueness: true
 end

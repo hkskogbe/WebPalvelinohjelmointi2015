@@ -1,0 +1,8 @@
+language: ruby
+deploy:
+  provider: heroku
+  api_key:
+    secure: dmw8VWIHLtWABbDgt50h/ASPQWmcfdBbYh/g6toijNhHRnNQZv7MijMPAdvCP+tLl7Wx8jBckPc5O1DJZYSeiTitbL/P/GTvl/dvoOzBy0O6SupoBzIGExfHK0sS5Fn3/iEvN5EuQhASzk5VjH1X9OKefxzJosJnj7oFeASm6gk=
+  app: mighty-badlands-1432
+  on:
+    repo: hkskogbe/WebPalvelinohjelmointi2015

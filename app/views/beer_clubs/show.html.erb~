@@ -10,9 +10,9 @@ Founded
 </p>
  Memberships
   <ul>
-    <% @beer_club.memberships.each do |membership| %>
+    <% @beer_club.members.each do |member| %>
 	  <li>
-        <td><%= link_to membership, membership_path  %></td>
+        <td><%= link_to member.username, member  %></td>
       </li>
     <% end %>
   </ul>

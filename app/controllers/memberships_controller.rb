@@ -14,10 +14,8 @@ class MembershipsController < ApplicationController
 
   # GET /memberships/new
   def new
+    @beer_clubs = BeerClub.all.reject{ |b| b.members.include? current_user }
     @membership = Membership.new
-	@beer_clubs = BeerClub.all
-	@users = User.all
-	@user = User.find_by username: params[:username]
   end
 
   # GET /memberships/1/edit
@@ -28,12 +26,14 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @membership = Membership.new(membership_params)
+    @membership.user = current_user
 
     respond_to do |format|
       if @membership.save
-        format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
+        format.html { redirect_to current_user, notice: "You just joined #{@membership.beer_club.name}" }
         format.json { render :show, status: :created, location: @membership }
       else
+        @beer_clubs = BeerClub.all.reject{ |b| b.members.include? current_user }
         format.html { render :new }
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
@@ -72,6 +72,6 @@ class MembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
-      params.require(:membership).permit(:beer_club_id, :user_id)
+      params.require(:membership).permit(:user_id, :beer_club_id)
     end
 end
