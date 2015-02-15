@@ -121,7 +121,7 @@
         1,
         null,
         1,
-        128,
+        134,
         null,
         107,
         null,
@@ -573,6 +573,60 @@
         null,
         null
       ],
+      "/home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/lib/beermapping_api.rb": [
+        1,
+        1,
+        5,
+        8,
+        null,
+        null,
+        1,
+        null,
+        1,
+        3,
+        null,
+        3,
+        3,
+        null,
+        3,
+        null,
+        2,
+        2,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/app/models/place.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        5,
+        null,
+        null
+      ],
+      "/home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/app/controllers/places_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        3,
+        3,
+        1,
+        null,
+        2,
+        null,
+        null,
+        null
+      ],
       "/home/hese/Ohjelmointi/WebPalvelinohjelmointi2015/ratebeer/app/controllers/ratings_controller.rb": [
         null,
         1,
@@ -613,6 +667,6 @@
         null
       ]
     },
-    "timestamp": 1423389709
+    "timestamp": 1423934514
   }
 }

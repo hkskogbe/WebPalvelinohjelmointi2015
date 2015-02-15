@@ -17,10 +17,12 @@ class BeersController < ApplicationController
   # GET /beers/1
   # GET /beers/1.json
   def show
+    @rating = Rating.new
+    @rating.beer = @beer
   end
 
   # GET /beers/new
-def new
+ def new
    @beer = Beer.new
  end
 

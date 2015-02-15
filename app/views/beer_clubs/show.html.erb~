@@ -17,5 +17,29 @@ Founded
     <% end %>
   </ul>
 
-<%= link_to 'Edit', edit_beer_club_path(@beer_club) %> |
-<%= link_to 'Back', beer_clubs_path %>
+
+<% if !session[:user_id].nil? %>
+  <% if @beer_club.members.include? @membership.user %>
+
+
+	<%= link_to '<button type="button">end the membership</button>'.html_safe, membership_path %>
+
+    <%= form_for(memberships_path, method: "delete") do |f| %>
+      <%= f.submit value: "end the membership" %>
+    <% end %>
+
+  <% else %>
+
+	<%= form_for(@membership) do |f| %>
+       <%= f.hidden_field :beer_club_id %>
+       <%= f.submit value:"join the club" %>
+	<% end %>
+ 
+  <% end %>
+<% end %>
+
+
+<p>
+<%= link_to 'Edit', edit_beer_club_path(@beer_club) %><br>
+<%= link_to 'Destroy', @beer_club, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

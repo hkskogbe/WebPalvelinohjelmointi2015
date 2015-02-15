@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+gem 'httparty'
+
 group :development, :test do
   gem 'sqlite3'
 end
@@ -63,5 +65,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'rspec-its'
+  gem 'simplecov', require: false
 end
 

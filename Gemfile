@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+gem 'httparty'
+
 group :development, :test do
   gem 'sqlite3'
 end
@@ -65,5 +67,6 @@ group :test do
   gem 'launchy'
   gem 'rspec-its'
   gem 'simplecov', require: false
+  gem 'webmock'
 end
 

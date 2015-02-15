@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201191701) do
+ActiveRecord::Schema.define(version: 20150215180440) do
 
   create_table "beer_clubs", force: :cascade do |t|
     t.string   "name"
@@ -21,13 +21,16 @@ ActiveRecord::Schema.define(version: 20150201191701) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "beers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "style"
-    t.integer  "brewery_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+# Could not dump table "beers" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "beers_styles", id: false, force: :cascade do |t|
+    t.integer "style_id", null: false
+    t.integer "beer_id",  null: false
   end
+
+  add_index "beers_styles", ["beer_id", "style_id"], name: "index_beers_styles_on_beer_id_and_style_id"
+  add_index "beers_styles", ["style_id", "beer_id"], name: "index_beers_styles_on_style_id_and_beer_id"
 
   create_table "breweries", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +53,9 @@ ActiveRecord::Schema.define(version: 20150201191701) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
+
+# Could not dump table "styles" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
